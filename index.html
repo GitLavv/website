@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<head>
+<title>Profit Calculator</title>
+<style>
+* {
+    font-family: Arial;
+}
+</style>
+<script type="text/javascript">
+	function calculate()
+	{
+		var boughtFor = document.getElementById("boughtFor").value;
+		var soldFor = document.getElementById("soldFor").value;
+		var coinsResult = soldFor * 0.95;
+		var result = coinsResult - boughtFor;
+		var output = document.getElementById("outputText");
+		output.innerHTML = "";
+		if (result>0)
+		{
+		text = document.createTextNode("You have made " + result + " coins profit!");
+		}
+		else if (result<0)
+		{
+		text = document.createTextNode("You have lost " + result + " coins!");
+		}
+		else 
+		{
+			text = document.createTextNode("You have broken even");
+		}
+		output.appendChild(text);
+		//alert(result);
+	}
+</script>
+</head>
+<body>
+<h1>FUT Profit Calculator</h1>
+<input type="number" id="boughtFor">  Bought For</input>
+<br>
+<br>
+<input type="number" id="soldFor">  Sold For</input>
+<br>
+<br>
+<button id="submitButton" onclick="calculate()">Calculate</button>
+<p id="outputText"></p>
+</body>
