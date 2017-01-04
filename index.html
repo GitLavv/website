@@ -5,6 +5,52 @@
 * {
     font-family: Arial;
 }
+
+body {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+	color: #c60303;
+	text-shadow: 1px 1px 4px #666;
+
+}
+
+p {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.wrapper {
+	width: 400px;
+	height: 600px;
+	margin: auto;
+}
+
+button {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #c60303;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px #999;
+}
+
+button:hover {background-color: #7a0303}
+
+button:active {
+  background-color: #7a0303;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
 </style>
 <script type="text/javascript">
 	function calculate()
@@ -26,7 +72,7 @@
 		}
 		else 
 		{
-			text = document.createTextNode("You have broken even");
+			text = document.createTextNode("You have broken even!");
 		}
 		output.appendChild(text);
 		//alert(result);
@@ -34,13 +80,16 @@
 </script>
 </head>
 <body>
+<div class="wrapper">
 <h1>FUT Profit Calculator</h1>
-<input type="number" id="boughtFor">  Bought For</input>
+<input type="number" id="boughtFor"></input>
+<p>Bought For</p>
+
 <br>
-<br>
-<input type="number" id="soldFor">  Sold For</input>
-<br>
-<br>
+<input type="number" id="soldFor"></input>
+<p>Sold For</p>
 <button id="submitButton" onclick="calculate()">Calculate</button>
 <p id="outputText"></p>
+</div>
 </body>
+</html>
