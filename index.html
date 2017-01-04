@@ -19,14 +19,14 @@ h1 {
 
 }
 
-p {
+h3 {
 	font-weight: bold;
 	font-style: italic;
 }
 
 .wrapper {
 	width: 400px;
-	height: 600px;
+	height: 500px;
 	margin: auto;
 }
 
@@ -83,14 +83,15 @@ button:active {
 <body>
 <div class="wrapper">
 <h1>FUT Profit Calculator</h1>
+<p>This is a simple calculator for working out transfer profit/loss after the 5% ea tax.</p>
 <input type="number" id="boughtFor"></input>
-<p>Bought For</p>
+<h3>Bought For</h3>
 
 <br>
 <input type="number" id="soldFor"></input>
-<p>Sold For</p>
+<h3>Sold For</h3>
 <button id="submitButton" onclick="calculate()">Calculate</button>
-<p id="outputText"></p>
+<h3 id="outputText"></h3>
 </div>
 </body>
 </html>
