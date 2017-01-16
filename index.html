@@ -26,7 +26,7 @@ h3 {
 
 .wrapper {
 	width: 320px;
-	height: 450px;
+	height: 500px;
 	margin: auto;
 }
 
@@ -52,6 +52,10 @@ button:active {
   box-shadow: 0 1px #666;
   transform: translateY(4px);
 }
+
+p1 {
+	color: grey;
+}
 </style>
 <script type="text/javascript">
 	function calculate()
@@ -59,6 +63,8 @@ button:active {
 		var boughtFor = document.getElementById("boughtFor").value;
 		var soldFor = document.getElementById("soldFor").value;
 		var coinsResult = soldFor * 0.95;
+		var minimumCoins = boughtFor / 0.95;
+		var minimumCoinsRounded = Math.ceil(minimumCoins);
 		var result = coinsResult - boughtFor;
 		var output = document.getElementById("outputText");
 		output.innerHTML = "";
@@ -71,12 +77,21 @@ button:active {
 		result = Math.abs(result);
 		text = document.createTextNode("You have lost " + result + " coins!");
 		}
-		else 
+		else if (result==0)
 		{
 			text = document.createTextNode("You have broken even!");
 		}
 		output.appendChild(text);
-		//alert(result);
+
+		var output2 = document.getElementById("receiveText");
+		output2.innerHTML = "";
+		output2Text = document.createTextNode("You will receive " + coinsResult + " coins!");
+		output2.appendChild(output2Text);
+
+		var output3 = document.getElementById("breakEvenText");
+		output3.innerHTML = "";
+		output3Text = document.createTextNode("Sell for at least  " + minimumCoinsRounded + " coins!");
+		output3.appendChild(output3Text);
 	}
 </script>
 </head>
@@ -86,12 +101,14 @@ button:active {
 <p>This is a simple calculator for working out transfer profit/loss after the 5% ea tax.</p>
 <input type="number" id="boughtFor"></input>
 <h3>Bought For</h3>
-
 <br>
 <input type="number" id="soldFor"></input>
 <h3>Sold For</h3>
 <button id="submitButton" onclick="calculate()">Calculate</button>
 <h3 id="outputText"></h3>
+<p1 id="receiveText"></p1>
+<br>
+<p1 id="breakEvenText"></p1>
 </div>
 </body>
 </html>
